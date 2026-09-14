@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="경력과 프로젝트, 기술 역량을 한눈에 살펴볼 수 있는 개인 이력서입니다."
+    />
+    <meta name="color-scheme" content="light" />
+    <meta name="theme-color" content="#111318" />
+    <title>YOUR NAME — Resume</title>
+    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&amp;family=IBM+Plex+Mono:wght@400;500;600&amp;family=Noto+Sans+KR:wght@400;500;600;700;800&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="resume-data.js" defer></script>
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">본문으로 바로가기</a>
+
+    <header class="site-header" aria-label="주요 탐색">
+      <a class="wordmark" href="#top" aria-label="이력서 첫 화면으로 이동">
+        <span class="wordmark__mark" aria-hidden="true">R/</span>
+        <span data-bind="shortName">RESUME</span>
+      </a>
+
+      <nav class="primary-nav" aria-label="이력서 섹션">
+        <a href="#profile" data-nav-section="profile">소개</a>
+        <a href="#experience" data-nav-section="experience">경력</a>
+        <a href="#projects" data-nav-section="projects">프로젝트</a>
+        <a href="#skills" data-nav-section="skills">역량</a>
+      </nav>
+
+      <button class="print-button" type="button" data-action="print">
+        <span>PDF / 인쇄</span>
+        <svg aria-hidden="true" viewBox="0 0 20 20">
+          <path d="M5 7V2h10v5M5 14H3a1 1 0 0 1-1-1V8a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v5a1 1 0 0 1-1 1h-2M5 11h10v7H5z" />
+        </svg>
+      </button>
+    </header>
+
+    <div class="template-notice" data-template-notice hidden role="note">
+      <span class="template-notice__label">TEMPLATE</span>
+      <p>현재는 샘플 구조입니다. 실제 이력서 내용은 <code>resume-data.js</code>에서 교체합니다.</p>
+    </div>
+
+    <main id="main-content">
+      <section class="hero" id="top" aria-labelledby="hero-title">
+        <div class="hero__grid">
+          <div class="hero__primary">
+            <p class="eyebrow" data-bind="roleEn">SOFTWARE ENGINEER</p>
+            <h1 id="hero-title">
+              <span class="hero__name" data-bind="name">YOUR NAME</span>
+              <span class="hero__name-ko" data-bind="nameKo">이름을 입력하세요</span>
+            </h1>
+            <p class="hero__headline" data-bind="headline">
+              문제를 구조화하고,<br />제품으로 완성합니다.
+            </p>
+          </div>
+
+          <div class="hero__secondary">
+            <div class="hero__index" aria-hidden="true">
+              <span>PROFILE</span>
+              <strong>01</strong>
+            </div>
+            <p class="hero__summary" data-bind="summary"></p>
+            <dl class="hero__meta" data-profile-meta></dl>
+            <div class="hero__actions" data-primary-actions></div>
+          </div>
+        </div>
+
+        <dl class="proof-strip" data-proof-points aria-label="핵심 경력 요약"></dl>
+      </section>
+
+      <div class="content-layout">
+        <aside class="section-rail" aria-label="현재 섹션">
+          <p class="section-rail__label">INDEX</p>
+          <ol data-section-index>
+            <li><a href="#profile" data-nav-section="profile"><span>01</span> 소개</a></li>
+            <li><a href="#experience" data-nav-section="experience"><span>02</span> 경력</a></li>
+            <li><a href="#projects" data-nav-section="projects"><span>03</span> 프로젝트</a></li>
+            <li><a href="#skills" data-nav-section="skills"><span>04</span> 역량</a></li>
+            <li><a href="#education" data-nav-section="education"><span>05</span> 학력</a></li>
+            <li><a href="#contact" data-nav-section="contact"><span>06</span> 연락처</a></li>
+          </ol>
+        </aside>
+
+        <div class="resume-body">
+          <section class="resume-section" id="profile" data-section="profile" aria-labelledby="profile-title">
+            <header class="section-heading">
+              <p>01 / PROFILE</p>
+              <h2 id="profile-title">어떤 문제를<br />잘 푸는 사람인가</h2>
+            </header>
+            <div class="profile-copy" data-profile-copy></div>
+          </section>
+
+          <section class="resume-section" id="experience" data-section="experience" aria-labelledby="experience-title">
+            <header class="section-heading">
+              <p>02 / EXPERIENCE</p>
+              <h2 id="experience-title">경력</h2>
+            </header>
+            <div class="timeline" data-experience-list></div>
+          </section>
+
+          <section class="resume-section" id="projects" data-section="projects" aria-labelledby="projects-title">
+            <header class="section-heading">
+              <p>03 / SELECTED WORK</p>
+              <h2 id="projects-title">선택한 프로젝트</h2>
+            </header>
+            <div class="project-list" data-project-list></div>
+          </section>
+
+          <section class="resume-section" id="skills" data-section="skills" aria-labelledby="skills-title">
+            <header class="section-heading">
+              <p>04 / CAPABILITIES</p>
+              <h2 id="skills-title">기술과 역량</h2>
+            </header>
+            <div class="skills-grid" data-skills-list></div>
+          </section>
+
+          <section class="resume-section" id="education" data-section="education" aria-labelledby="education-title">
+            <header class="section-heading">
+              <p>05 / BACKGROUND</p>
+              <h2 id="education-title">학력과 자격</h2>
+            </header>
+            <div class="background-grid">
+              <div>
+                <h3>EDUCATION</h3>
+                <div data-education-list></div>
+              </div>
+              <div>
+                <h3>CREDENTIALS</h3>
+                <div data-credentials-list></div>
+              </div>
+            </div>
+          </section>
+
+          <section class="contact-section" id="contact" data-section="contact" aria-labelledby="contact-title">
+            <p class="contact-section__index">06 / CONTACT</p>
+            <div>
+              <h2 id="contact-title" data-bind="contactHeading">함께 만들 이야기가 있다면</h2>
+              <p data-bind="contactText"></p>
+            </div>
+            <div class="contact-links" data-contact-links></div>
+          </section>
+        </div>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <p><span data-bind="name">YOUR NAME</span> · RESUME</p>
+      <p>Last updated <time data-bind="lastUpdated"></time> · © <span data-current-year></span></p>
+    </footer>
+
+    <noscript>
+      <p class="noscript-message">이 이력서를 보려면 브라우저에서 JavaScript를 활성화해 주세요.</p>
+    </noscript>
+  </body>
+</html>

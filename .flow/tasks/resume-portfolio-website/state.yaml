@@ -1,0 +1,25 @@
+stage: closed
+profile: standard
+gates:
+  office_hours: false
+  ceo_review: false
+  eng_review: false
+  design_review: true
+  brainstorm: true
+  polish: false
+  multi_agent: false
+execution:
+  qa_mode: validate_only
+frameworks:
+  openspec: "1.6.0 detected; not selected"
+  gstack: "1.60.1.0 detected; direct design fallback used"
+  compound_engineering: "3.25.0 active for brainstorm principles, plan, work, review, and learning"
+  omx: "not available; not selected"
+artifacts:
+  task: task.md
+  decisions: decisions.md
+  plan: plan.md
+  review: review.md
+  qa: qa.md
+  followups: followups.md
+updated: 2026-09-14
