@@ -1,0 +1,25 @@
+stage: closed
+profile: standard
+gates:
+  office_hours: false
+  ceo_review: false
+  eng_review: false
+  design_review: true
+  brainstorm: false
+  polish: false
+  multi_agent: true
+execution:
+  qa_mode: validate_only
+frameworks:
+  openspec: "detected 1.6.0; not selected"
+  gstack: "detected 1.60.1.0; direct design/QA fallback selected"
+  compound_engineering: "3.25.0; ce-plan, ce-work, ce-code-review, ce-compound eligibility check completed"
+  omx: "not installed; not selected"
+artifacts:
+  task: task.md
+  decisions: decisions.md
+  plan: plan.md
+  review: review.md
+  qa: qa.md
+  followups: followups.md
+updated: 2026-09-14

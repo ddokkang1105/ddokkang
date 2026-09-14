@@ -17,6 +17,8 @@ const html = contents["index.html"];
 const css = contents["styles.css"];
 const app = contents["app.js"];
 
+new vm.Script(app, { filename: "app.js" });
+
 check(html.includes('lang="ko"'), "The document needs a language declaration.");
 check(html.includes('name="viewport"'), "The document needs responsive viewport metadata.");
 check(html.includes('href="favicon.svg"'), "The document needs the custom favicon.");
@@ -36,9 +38,15 @@ check(css.includes("@media (prefers-reduced-motion: reduce)"), "Reduced-motion s
 check(css.includes("@media print"), "Print styles are required.");
 check(css.includes("size: A4"), "The print layout must target A4.");
 check(!css.includes("font-family: system-ui"), "The visual system should not fall back to a generic system UI as its primary typeface.");
+check(css.includes("--accent: #f37321"), "The sports editorial theme needs the orange accent token.");
+check(css.includes("--black: #090909"), "The sports editorial theme needs the black base token.");
+check(html.includes('class="hero__signal"'), "The hero needs its scoreboard-style signal strip.");
 check(!app.includes("innerHTML"), "Resume content should be rendered without innerHTML.");
 check(app.includes("isSafeHref"), "External links need protocol validation.");
 check(app.includes("IntersectionObserver"), "Section navigation should respond to the reading position.");
+check(app.includes("restoreHashPosition"), "Direct section links must be restored after data rendering.");
+check(app.includes('addEventListener("hashchange"'), "Same-page section links must restore their target position.");
+check(app.includes("document.fonts?.ready"), "Direct links must settle after web fonts finish loading.");
 check(app.includes("window.print()"), "The print action must be wired.");
 
 const sandbox = { window: {} };

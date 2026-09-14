@@ -281,6 +281,25 @@
     sections.forEach((section) => observer.observe(section));
   };
 
+  const restoreHashPosition = () => {
+    if (!window.location.hash) return;
+    let targetId;
+    try {
+      targetId = decodeURIComponent(window.location.hash.slice(1));
+    } catch {
+      return;
+    }
+    const target = document.getElementById(targetId);
+    if (!target) return;
+    target.scrollIntoView({ block: "start" });
+  };
+
+  const scheduleHashPositionRestore = () => {
+    window.requestAnimationFrame(() => {
+      window.requestAnimationFrame(restoreHashPosition);
+    });
+  };
+
   bindText();
   renderProfile();
   renderProofPoints();
@@ -297,4 +316,8 @@
   document.documentElement.classList.add("js-ready");
   document.body.dataset.renderState = "ready";
   enableInteractions();
+  scheduleHashPositionRestore();
+  window.addEventListener("load", scheduleHashPositionRestore, { once: true });
+  window.addEventListener("hashchange", scheduleHashPositionRestore);
+  document.fonts?.ready.then(scheduleHashPositionRestore);
 })();
