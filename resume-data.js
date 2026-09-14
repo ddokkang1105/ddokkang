@@ -91,6 +91,19 @@ window.resumeData = {
       tags: ["Java", "Servlet/JSP", "MyBatis", "Tomcat", "Burp Suite", "SAST/DAST"],
       links: [],
     },
+    {
+      title: "MSSQL → PostgreSQL 데이터베이스 마이그레이션",
+      type: "SUB PROJECT / DATABASE",
+      summary:
+        "레거시 MSSQL 기반 MyBatis Mapper SQL을 PostgreSQL 환경으로 전환하고, 문법 호환성뿐 아니라 타입 안정성과 애플리케이션 결과 키 호환성까지 점검했습니다.",
+      highlights: [
+        "TOP, ISNULL, GETDATE, CONVERT, 날짜 연산과 문자열 집계 등 MSSQL 의존 SQL을 PostgreSQL 실행 문법으로 전환했습니다.",
+        "MyBatis 바인딩 타입과 LIMIT/OFFSET 캐스팅 기준을 정리하고, Java·JSP·Grid가 기대하는 결과 alias의 대소문자 호환성을 보존했습니다.",
+        "스캔 → 분류 → 변환 → 검증 → 재스캔 절차를 표준화하고 UTF-8·XML 파싱, 잔여 문법 탐지, SQLSTATE 기반 오류 추적 체계를 마련했습니다.",
+      ],
+      tags: ["PostgreSQL", "MSSQL", "MyBatis", "SQL", "XML", "PowerShell", "Python"],
+      links: [],
+    },
   ],
 
   skills: [
