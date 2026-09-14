@@ -79,12 +79,16 @@ window.resumeData = {
       links: [],
     },
     {
-      title: "두 번째 프로젝트 이름",
-      type: "SIDE PROJECT / 20XX",
+      title: "사내 웹 시스템 보안 취약점 개선",
+      type: "SUB PROJECT / APPSEC",
       summary:
-        "개인 또는 팀 프로젝트의 목적과 완성도를 보여주는 설명을 입력하세요.",
-      highlights: ["복잡도를 드러내는 구현 포인트를 입력하세요."],
-      tags: ["역할", "기술"],
+        "사내 표준관리 웹 시스템의 보안점검 결과를 분석하고, 애플리케이션 계층의 취약점 개선부터 수동 재현과 재점검까지 수행했습니다.",
+      highlights: [
+        "SAST 3,243건을 조치 완료 2,216건과 검토 의견 1,027건으로 정리하고, DAST 154건을 조치 요청 112건과 오탐 42건으로 분류했습니다.",
+        "SQL Injection, XSS, CSRF, 인증·인가, 경로 조작 이슈를 코드 흐름과 요청 경로 단위로 분석해 개선했습니다.",
+        "Burp Suite, Chrome DevTools, Tomcat 로그를 활용해 취약점 재현부터 수정 후 재점검과 영향 범위 확인까지 수행했습니다.",
+      ],
+      tags: ["Java", "Servlet/JSP", "MyBatis", "Tomcat", "Burp Suite", "SAST/DAST"],
       links: [],
     },
   ],
